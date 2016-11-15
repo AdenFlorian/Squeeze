@@ -35,7 +35,10 @@ namespace SqueezeLauncher
 
 				Console.WriteLine("Deleting old files...");
 				var gameFolder = new DirectoryInfo(GameFolderName);
-				gameFolder.Delete(true);
+				if (gameFolder.Exists) {
+					Console.WriteLine("Deleting Game folder...");
+					gameFolder.Delete(true);
+				}
 
 				Console.WriteLine("Unpacking new files...");
 				Directory.CreateDirectory(GameFolderName);
@@ -65,8 +68,14 @@ namespace SqueezeLauncher
 		{
 			var version = "";
 
-			version = File.ReadAllText(GameFolderName + "/version.txt");
+			var versionFile = new FileInfo(GameFolderName + "/version.txt");
 
+			if (versionFile.Exists) {
+				version = File.ReadAllText(GameFolderName + "/version.txt");
+			} else {
+				version = "0.0.0";
+			}
+			
 			return GameVersion.FromString(version);
 		}
 	}

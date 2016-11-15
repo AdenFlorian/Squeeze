@@ -8,8 +8,8 @@ namespace SqueezeLauncher
     public class UpdateClient
 	{
 		readonly HttpClient _client = new HttpClient {
-			//BaseAddress = new Uri("https://squeeze.AdenFlorian.com/update/")
-			BaseAddress = new Uri("http://localhost:8080/")
+			BaseAddress = new Uri("https://squeeze.AdenFlorian.com/")
+			//BaseAddress = new Uri("http://localhost:8080/")
 		};
 
 		public async Task<GameVersion> GetLatestVersionNumber()
