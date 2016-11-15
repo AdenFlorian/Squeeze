@@ -1,0 +1,11 @@
+client
+[x] needs to know what version it has
+[x] needs to be able to find out the newest version
+[x] needs to be able to download latest verson zip
+[ ] should remove old gam files and replace with new version when updating
+[ ] should clean up temp files (zip file)
+
+server
+[x] provide newest version number
+[x] provide zip of newest version
+[ ] be able to receive uploaded zipped versions of game
